@@ -1,23 +1,36 @@
+---
+import '../styles/globals.css';
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR" class="h-full w-full lenis lenis-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+		/>
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Pinckmax Bakery – O Melhor Caseiro</title>
+		<meta
+			name="description"
+			content="Um affair de amor com a confeitaria. Biscoitos, bolos e doces caseiros. Tome um café ou peça online. St-Henri, Montreal."
+		/>
 	</head>
-	<body>
+	<body class="m-0 min-h-full w-full overflow-x-hidden">
 		<slot />
+		<script>
+			import { initSmoothScroll, initScrollAnimations } from '../scripts/smoothScroll';
+			document.addEventListener('DOMContentLoaded', () => {
+				initSmoothScroll();
+				initScrollAnimations();
+				setTimeout(initScrollAnimations, 150);
+			});
+		</script>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
