@@ -1,11 +1,20 @@
 import Lenis from 'lenis';
 
 export function initSmoothScroll() {
-	new Lenis({
+	const lenis = new Lenis({
 		duration: 1.2,
 		easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
 		smoothWheel: true,
 		autoRaf: true,
+	});
+
+	lenis.on('scroll', ({ velocity }: { velocity: number }) => {
+		const isFast = Math.abs(velocity) > 5;
+		if (isFast) {
+			document.body.classList.add('is-fast-scroll');
+		} else {
+			document.body.classList.remove('is-fast-scroll');
+		}
 	});
 }
 

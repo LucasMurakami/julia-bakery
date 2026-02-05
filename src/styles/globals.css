@@ -118,3 +118,9 @@ body {
 [data-animate][data-animate-delay="2"] { transition-delay: 0.3s; }
 [data-animate][data-animate-delay="3"] { transition-delay: 0.45s; }
 [data-animate][data-animate-delay="4"] { transition-delay: 0.6s; }
+
+/* Adjust animation speed when scrolling fast */
+body.is-fast-scroll [data-animate] {
+	transition-duration: 0.4s;
+	transition-delay: 0s !important;
+}

@@ -1,9 +1,6 @@
 ---
-const bestsellers = [
-	{ name: 'Aniversário', slug: 'birthday', image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=400&fit=crop' },
-	{ name: 'Chocolate', slug: 'chocolate-chunk', image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&h=400&fit=crop' },
-	{ name: "S'mores", slug: 'smores', image: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=400&h=400&fit=crop' },
-];
+import { cookies } from '../lib/products';
+const bestsellers = cookies;
 ---
 
 <section id="cookies" data-animate class="relative overflow-hidden bg-[hsl(var(--background))] px-6 py-16 md:px-10 md:py-24 lg:px-16">

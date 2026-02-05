@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/ui/Nav';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Página não encontrada | Pinckmax">
+  <div class="min-h-screen flex flex-col bg-[hsl(var(--background))]">
+    <Nav client:load forceOpaque={true} />
+    
+    <main class="flex-grow flex flex-col items-center justify-center px-6 text-center pt-32 pb-16">
+      <h1 class="text-9xl font-bold text-[hsl(var(--primary))] opacity-20 select-none">404</h1>
+      <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-wide mt-[-2rem] mb-6 relative z-10">
+        Ops! Nada por aqui.
+      </h2>
+      <p class="text-lg text-[hsl(var(--muted-foreground))] max-w-md mb-8">
+        A página que você está procurando pode ter sido removida, renomeada ou não existe.
+      </p>
+      <a 
+        href="/" 
+        class="inline-flex items-center justify-center rounded-full bg-[hsl(var(--primary))] px-8 py-3 text-sm font-bold text-white transition-all hover:bg-[hsl(var(--primary))/90] hover:shadow-lg"
+      >
+        Voltar ao Início
+      </a>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>

@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/ui/Nav';
+import Footer from '../components/Footer.astro';
+import SearchResults from '../components/ui/SearchResults';
+---
+
+<Layout title="Buscar | Pinckmax">
+  <div class="min-h-screen bg-[hsl(var(--background))]">
+    <Nav client:load forceOpaque={true} />
+    
+    <main class="pt-24 pb-16">
+       <SearchResults client:only="react" />
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
