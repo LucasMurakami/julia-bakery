@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import SearchOverlay from './SearchOverlay';
 import SideMenu from './SideMenu';
+import ThemeToggle from './ThemeToggle';
 
 type NavProps = {
   forceOpaque?: boolean;
@@ -66,7 +67,7 @@ export default function Nav({ forceOpaque = false }: NavProps) {
       <header className={`fixed left-0 right-0 top-0 z-50 w-full ease-in-out ${
         isMenuOpen ? 'transition-none' : 'transition-all duration-500'
       } ${
-        (isScrolled || forceOpaque || isSearchBgVisible) ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
+        (isScrolled || forceOpaque || isSearchBgVisible) ? 'bg-[hsl(var(--background))]/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
       }`}>
         <SearchOverlay 
           isOpen={isSearchOpen} 
@@ -76,17 +77,17 @@ export default function Nav({ forceOpaque = false }: NavProps) {
 
         <nav className="relative z-[60] flex items-center justify-between gap-6 px-6 py-5 md:px-10 lg:px-16">
           <a href="/" className={`text-xl font-bold uppercase tracking-wide md:text-2xl transition-colors duration-300 ${
-             isScrolled || forceOpaque || isSearchBgVisible ? 'text-black' : 'text-white'
+             isScrolled || forceOpaque || isSearchBgVisible ? 'text-[hsl(var(--foreground))]' : 'text-white'
           }`}>
             Pinckmax
           </a>
           
           <ul className={`absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 text-sm font-medium uppercase tracking-wider lg:flex transition-colors duration-300 ${
-            isScrolled || forceOpaque || isSearchBgVisible ? 'text-neutral-800' : 'text-white/95'
+            isScrolled || forceOpaque || isSearchBgVisible ? 'text-[hsl(var(--foreground))]' : 'text-white/95'
           }`}>
             {links.map(({ href, label }) => (
               <li key={href}>
-                <a href={href} className={`transition-colors duration-300 ${isScrolled || forceOpaque || isSearchBgVisible ? 'hover:text-black' : 'hover:text-white'}`}>
+                <a href={href} className={`transition-colors duration-300 ${isScrolled || forceOpaque || isSearchBgVisible ? 'hover:text-[hsl(var(--accent))]' : 'hover:text-white'}`}>
                   {label}
                 </a>
               </li>
@@ -94,8 +95,11 @@ export default function Nav({ forceOpaque = false }: NavProps) {
           </ul>
 
           <div className={`ml-auto flex items-center gap-5 transition-colors duration-300 ${
-            isScrolled || forceOpaque || isSearchBgVisible ? 'text-neutral-900' : 'text-white'
+            isScrolled || forceOpaque || isSearchBgVisible ? 'text-[hsl(var(--foreground))]' : 'text-white'
           }`}>
+             <div>
+              <ThemeToggle />
+             </div>
             <a href="#cart" className="hover:opacity-80 transition-opacity" aria-label="Sacola">
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />

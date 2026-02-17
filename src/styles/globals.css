@@ -5,6 +5,7 @@
 @tailwind utilities;
 
 :root {
+	color-scheme: light dark;
 	--background: 40 33% 98%;
 	--foreground: 180 15% 18%;
 	--card: 0 0% 100%;
@@ -32,8 +33,37 @@
 	--morning-butter: 44 81% 76%;
 }
 
+.dark {
+	--background: 30 15% 8%;
+	--foreground: 40 20% 90%;
+	--card: 30 12% 12%;
+	--card-foreground: 40 20% 90%;
+	--popover: 30 12% 12%;
+	--popover-foreground: 40 20% 90%;
+	--primary: 174 55% 45%;
+	--primary-foreground: 0 0% 100%;
+	--secondary: 30 12% 16%;
+	--secondary-foreground: 40 20% 85%;
+	--muted: 30 10% 16%;
+	--muted-foreground: 40 10% 60%;
+	--accent: 345 65% 68%;
+	--accent-foreground: 0 0% 100%;
+	--destructive: 0 80% 55%;
+	--destructive-foreground: 0 0% 98%;
+	--border: 30 10% 20%;
+	--input: 30 10% 20%;
+	--ring: 174 55% 45%;
+	--teal: 174 55% 45%;
+	--cream: 30 15% 8%;
+	--blush: 345 65% 68%;
+	--morning-butter: 44 75% 55%;
+}
+
 * {
 	border-color: hsl(var(--border));
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 300ms;
 }
 
 body {

@@ -58,7 +58,7 @@ export default function SearchResults() {
           <a 
             key={product.id}
             href={product.category === 'cakes' ? `/cakes/${product.id}` : '/#cookies'} 
-            className="group relative block overflow-hidden rounded-2xl bg-neutral-100 shadow-sm transition-all hover:shadow-md"
+            className="group relative block overflow-hidden rounded-2xl bg-neutral-100 dark:bg-[hsl(var(--card))] shadow-sm transition-all hover:shadow-md"
           >
             <div className="aspect-square overflow-hidden">
                 <img 

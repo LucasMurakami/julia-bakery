@@ -39,7 +39,7 @@ export default function SearchOverlay({ isOpen, isHidden, onClose }: SearchOverl
   };
 
   return (
-    <div className={`absolute top-full left-0 w-full bg-white border-t border-neutral-100 shadow-xl px-6 py-8 transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) ${
+    <div className={`absolute top-full left-0 w-full bg-[hsl(var(--background))] border-t border-[hsl(var(--border))] shadow-xl px-6 py-8 transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) ${
         isOpen 
           ? 'translate-y-0 opacity-100 visible' 
           : (isHidden ? 'hidden' : '-translate-y-10 opacity-0 invisible pointer-events-none')
@@ -56,7 +56,7 @@ export default function SearchOverlay({ isOpen, isHidden, onClose }: SearchOverl
             />
             <button 
               type="submit"
-              className="rounded-full bg-neutral-900 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-neutral-800"
+              className="rounded-full bg-neutral-900 dark:bg-neutral-100 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white dark:text-neutral-900 transition-all hover:bg-neutral-800 dark:hover:bg-neutral-200"
             >
               Buscar
             </button>

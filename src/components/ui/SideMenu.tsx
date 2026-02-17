@@ -1,3 +1,4 @@
+
 type Link = {
   href: string;
   label: string;
@@ -27,29 +28,31 @@ export default function SideMenu({ isOpen, onClose, links }: SideMenuProps) {
         
         {/* Drawer Content */}
         <div 
-          className={`absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl transition-transform duration-500 cubic-bezier(0.32, 0.72, 0, 1) ${
+          className={`absolute right-0 top-0 h-full w-full max-w-md bg-[hsl(var(--background))] shadow-2xl transition-transform duration-500 cubic-bezier(0.32, 0.72, 0, 1) ${
             isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
           <div className="flex h-full flex-col p-6 md:p-10">
             {/* Drawer Header */}
             <div className="flex items-center justify-between mb-12">
-              <span className="text-xl font-bold uppercase tracking-wide md:text-2xl text-black">
+              <a href="/" onClick={onClose} className="text-xl font-bold uppercase tracking-wide md:text-2xl text-[hsl(var(--foreground))]">
                 Pinckmax
-              </span>
-              <button 
-                onClick={onClose}
-                className="p-2 -mr-2 text-black hover:opacity-70 transition-opacity"
-                aria-label="Fechar menu"
-              >
-                <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
+              </a>
+              <div className="flex items-center gap-4">
+                <button 
+                  onClick={onClose}
+                  className="p-2 -mr-2 text-[hsl(var(--foreground))] hover:opacity-70 transition-opacity"
+                  aria-label="Fechar menu"
+                >
+                  <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
             </div>
 
             {/* Links */}
-            <ul className="flex flex-col items-center gap-8 text-2xl font-bold uppercase tracking-[0.2em] text-neutral-900 mt-10">
+            <ul className="flex flex-col items-center gap-8 text-2xl font-bold uppercase tracking-[0.2em] text-[hsl(var(--foreground))] mt-10">
               {links.map(({ href, label }, i) => (
                 <li 
                   key={label}
