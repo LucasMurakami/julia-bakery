@@ -1,9 +1,14 @@
+---
+import { ENABLED_CATEGORIES } from '../config';
+---
+
 <footer class="mt-16 border-t border-[hsl(var(--border))] px-6 py-10 text-center text-sm text-[hsl(var(--muted-foreground))] md:px-10 lg:px-16">
 	<div class="mx-auto flex max-w-6xl flex-wrap justify-center gap-6 font-medium uppercase tracking-wider">
-		<a class="hover:text-[hsl(var(--foreground))] transition-colors" href="#cookies">Biscoitos</a>
-		<a class="hover:text-[hsl(var(--foreground))] transition-colors" href="#cakes">Bolos</a>
-		<a class="hover:text-[hsl(var(--foreground))] transition-colors" href="#about">Sobre</a>
-		<a class="hover:text-[hsl(var(--foreground))] transition-colors" href="#contact">Contato</a>
+		{ENABLED_CATEGORIES.includes('cookies') && <a class="hover:text-[hsl(var(--foreground))] transition-colors" href="/cookies">Cookies</a>}
+		{ENABLED_CATEGORIES.includes('cakes') && <a class="hover:text-[hsl(var(--foreground))] transition-colors" href="/cakes">Bolos</a>}
+		{ENABLED_CATEGORIES.includes('mooncakes') && <a class="hover:text-[hsl(var(--foreground))] transition-colors" href="/mooncakes">Mooncakes</a>}
+		<a class="hover:text-[hsl(var(--foreground))] transition-colors" href="/about">Sobre</a>
+		<a class="hover:text-[hsl(var(--foreground))] transition-colors" href="/contact">Contato</a>
 	</div>
 	<p class="mt-6">© 2026 Pinckmax Bakery. Feito com manteiga e amor.</p>
 </footer>

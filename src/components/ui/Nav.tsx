@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import SearchOverlay from './SearchOverlay';
 import SideMenu from './SideMenu';
 import ThemeToggle from './ThemeToggle';
+import { ENABLED_CATEGORIES } from '../../config';
 
 type NavProps = {
   forceOpaque?: boolean;
@@ -45,8 +46,9 @@ export default function Nav({ forceOpaque = false }: NavProps) {
   }, [forceOpaque]);
 
   const links = [
-    { href: '/cookies', label: 'Biscoitos' },
-    { href: '/cakes', label: 'Bolos' },
+    ...(ENABLED_CATEGORIES.includes('cakes') ? [{ href: '/cakes', label: 'Bolos' }] : []),
+    ...(ENABLED_CATEGORIES.includes('cookies') ? [{ href: '/cookies', label: 'Cookies' }] : []),
+    ...(ENABLED_CATEGORIES.includes('mooncakes') ? [{ href: '/mooncakes', label: 'Mooncakes' }] : []),
     { href: '/about', label: 'Sobre' },
     { href: '/contact', label: 'Contato' },
   ];

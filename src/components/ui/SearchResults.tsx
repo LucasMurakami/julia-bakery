@@ -70,7 +70,7 @@ export default function SearchResults() {
             <div className="p-6">
                 <div className="mb-2 flex items-center justify-between">
                     <span className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent))]">
-                        {product.category === 'cakes' ? 'Bolo' : 'Biscoito'}
+                        {product.category === 'cakes' ? 'Bolo' : 'Cookie'}
                     </span>
                     {product.price && <span className="font-semibold text-[hsl(var(--primary))]">{product.price}</span>}
                 </div>

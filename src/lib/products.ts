@@ -1,3 +1,5 @@
+import { ENABLED_CATEGORIES } from '../config';
+
 export type Product = {
   id: string | number;
   slug?: string;
@@ -5,7 +7,7 @@ export type Product = {
   description?: string;
   price?: string;
   image: string;
-  category: 'cakes' | 'cookies';
+  category: 'cakes' | 'cookies' | 'mooncakes';
   ingredients?: string[];
   allergens?: string[];
   details?: string;
@@ -87,15 +89,23 @@ export const cookies: Product[] = [
     slug: 'birthday', 
     image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=400&fit=crop',
     category: 'cookies',
-    description: 'Cookie festivo com sabor de bolo de aniversário.'
+    description: 'Cookie festivo com sabor de bolo de aniversário.',
+    price: 'R$ 12,00',
+    ingredients: ['Farinha de Trigo', 'Manteiga', 'Açúcar', 'Confeitos coloridos', 'Essência de Baunilha'],
+    allergens: ['Glúten', 'Leite', 'Ovos'],
+    details: 'Uma festa a cada mordida! Massa amanteigada com sabor de bolo de aniversário, repleta de granulados coloridos que trazem alegria e crocância.'
   },
   { 
     id: 102, 
-    name: 'Chocolate', 
+    name: 'Chocolate Chunk', 
     slug: 'chocolate-chunk', 
     image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&h=400&fit=crop',
     category: 'cookies',
-    description: 'Clássico cookie com pedaços generosos de chocolate.'
+    description: 'Clássico cookie com pedaços generosos de chocolate.',
+    price: 'R$ 14,00',
+    ingredients: ['Farinha de Trigo', 'Manteiga', 'Açúcar Mascavo', 'Chocolate Meio Amargo', 'Ovos'],
+    allergens: ['Glúten', 'Leite', 'Ovos', 'Soja'],
+    details: 'O clássico que nunca sai de moda. Pedaços grandes e irregulares de chocolate nobre que derretem na boca, envoltos em uma massa crocante por fora e macia por dentro.'
   },
   { 
     id: 103, 
@@ -103,8 +113,93 @@ export const cookies: Product[] = [
     slug: 'smores', 
     image: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=400&h=400&fit=crop',
     category: 'cookies',
-    description: 'Uma delícia de acampamento em forma de cookie.'
+    description: 'Uma delícia de acampamento em forma de cookie.',
+    price: 'R$ 15,00',
+    ingredients: ['Farinha de Trigo', 'Marshmallow', 'Chocolate', 'Nutella', 'Bolacha Maizena'],
+    allergens: ['Glúten', 'Leite', 'Ovos', 'Avelã'],
+    details: 'A inspiração vem das fogueiras americanas. Marshmallow tostado e puxa-puxa combinado com chocolate derretido e base crocante.'
   },
+  { 
+    id: 104, 
+    name: 'Red Velvet', 
+    slug: 'red-velvet', 
+    image: 'https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=400&h=400&fit=crop',
+    category: 'cookies',
+    description: 'A elegância do bolo red velvet em um cookie macio com gotas de chocolate branco.',
+    price: 'R$ 13,00',
+    ingredients: ['Farinha de Trigo', 'Cacau em Pó', 'Chocolate Branco', 'Corante Vermelho', 'Manteiga'],
+    allergens: ['Glúten', 'Leite', 'Ovos'],
+    details: 'Vermelho vibrante e sabor sofisticado. O leve toque de cacau harmoniza perfeitamente com a doçura do chocolate branco.'
+  },
+  { 
+    id: 105, 
+    name: 'Macadâmia e Chocolate Branco', 
+    slug: 'macadamia-white-chocolate', 
+    image: 'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=400&h=400&fit=crop',
+    category: 'cookies',
+    description: 'Combinação luxuosa de castanhas crocantes e chocolate branco cremoso.',
+    price: 'R$ 16,00',
+    ingredients: ['Farinha de Trigo', 'Macadâmia', 'Chocolate Branco', 'Manteiga', 'Açúcar'],
+    allergens: ['Glúten', 'Leite', 'Ovos', 'Nozes'],
+    details: 'Sofisticação pura. As macadâmias tostadas trazem uma crocância amanteigada que contrasta com a suavidade do chocolate branco de alta qualidade.'
+  },
+  { 
+    id: 106, 
+    name: 'Aveia e Passas', 
+    slug: 'oatmeal-raisin', 
+    image: 'https://images.unsplash.com/photo-1557089706-68d02dbda277?w=400&h=400&fit=crop',
+    category: 'cookies',
+    description: 'O reconfortante sabor caseiro com aveia tostada e passas suculentas.',
+    price: 'R$ 11,00',
+    ingredients: ['Aveia em Flocos', 'Uvas Passas', 'Canela', 'Açúcar Mascavo', 'Manteiga'],
+    allergens: ['Glúten', 'Leite', 'Ovos'],
+    details: 'Para quem ama tradição. A textura rústica da aveia combinada com o doce natural das passas e um toque quente de canela.'
+  }
 ];
 
-export const allProducts = [...cakes, ...cookies];
+
+export const mooncakes: Product[] = [
+  {
+    id: 201,
+    name: 'Lótus Dourado',
+    slug: 'lotus-seed-paste',
+    image: 'https://images.unsplash.com/photo-1632598380292-693246377265?q=80&w=1000&auto=format&fit=crop',
+    category: 'mooncakes',
+    description: 'Tradicional pasta de semente de lótus com gema de ovo salgada dupla.',
+    price: 'R$ 45,00',
+    ingredients: ['Semente de Lótus', 'Gema de Pato Salgada', 'Xarope Dourado', 'Óleo de Amendoim'],
+    allergens: ['Glúten', 'Ovos', 'Amendoim'],
+    details: 'A quintessência do Festival do Meio Outono. Uma pasta de lótus sedosa e rica envolve duas gemas de ovo de pato curadas, simbolizando a lua cheia.'
+  },
+  {
+    id: 202,
+    name: 'Feijão Vermelho & Matcha',
+    slug: 'red-bean-matcha',
+    image: 'https://images.unsplash.com/photo-1536553832049-7b3e80064f2d?q=80&w=1000&auto=format&fit=crop',
+    category: 'mooncakes',
+    description: 'Fusão delicada de pasta de feijão vermelho doce e massa de chá verde matcha.',
+    price: 'R$ 42,00',
+    ingredients: ['Feijão Azuki', 'Pó de Matcha Premium', 'Mel', 'Farinha de Trigo'],
+    allergens: ['Glúten'],
+    details: 'O equilíbrio perfeito entre o doce terroso do feijão azuki e o amargor aromático do matcha. Uma interpretação moderna de um clássico.'
+  },
+  {
+    id: 203,
+    name: 'Cinco Nozes (Wuren)',
+    slug: 'five-nuts',
+    image: 'https://images.unsplash.com/photo-1599307406981-229ca230537f?q=80&w=1000&auto=format&fit=crop',
+    category: 'mooncakes',
+    description: 'Uma mistura crocante de amêndoas, nozes, gergelim e melão de inverno.',
+    price: 'R$ 48,00',
+    ingredients: ['Amêndoas', 'Nozes', 'Sementes de Gergelim', 'Sementes de Abóbora', 'Melão de Inverno Cristalizado'],
+    allergens: ['Glúten', 'Nozes', 'Gergelim'],
+    details: 'Textura rica e sabor complexo. A variedade de nozes e sementes torradas oferece uma experiência crocante e satisfatória em cada mordida.'
+  }
+];
+
+export const allProducts: Product[] = [
+  ...(ENABLED_CATEGORIES.includes('cakes') ? cakes : []),
+  ...(ENABLED_CATEGORIES.includes('cookies') ? cookies : []),
+  ...(ENABLED_CATEGORIES.includes('mooncakes') ? mooncakes : [])
+];
+
