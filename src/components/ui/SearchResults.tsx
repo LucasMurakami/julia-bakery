@@ -24,9 +24,8 @@ export default function SearchResults() {
     const lowerQ = q.toLowerCase();
     const filtered = allProducts.filter(p => 
       p.name.toLowerCase().includes(lowerQ) || 
-      (p.description || '').toLowerCase().includes(lowerQ) ||
-      p.category.toLowerCase().includes(lowerQ) ||
-      (p.details || '').toLowerCase().includes(lowerQ)
+      (p.product_description || '').toLowerCase().includes(lowerQ) ||
+      p.category.name.toLowerCase().includes(lowerQ)
     );
 
     if (filtered.length === 0) {
@@ -57,7 +56,7 @@ export default function SearchResults() {
         {results.map((product) => (
           <a 
             key={product.id}
-            href={product.category === 'cakes' ? `/cakes/${product.id}` : '/#cookies'} 
+            href={`/${product.category.name}/${product.slug || product.id}`}
             className="group relative block overflow-hidden rounded-2xl bg-neutral-100 dark:bg-[hsl(var(--card))] shadow-sm transition-all hover:shadow-md"
           >
             <div className="aspect-square overflow-hidden">
@@ -70,12 +69,12 @@ export default function SearchResults() {
             <div className="p-6">
                 <div className="mb-2 flex items-center justify-between">
                     <span className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent))]">
-                        {product.category === 'cakes' ? 'Bolo' : 'Cookie'}
+                        {product.category.name === 'cakes' ? 'Bolo' : product.category.name === 'cookies' ? 'Cookie' : 'Mooncake'}
                     </span>
-                    {product.price && <span className="font-semibold text-[hsl(var(--primary))]">{product.price}</span>}
+                    {product.price && <span className="font-semibold text-[hsl(var(--primary))]">R$ {product.price.toFixed(2).replace('.', ',')}</span>}
                 </div>
                 <h2 className="mb-2 text-xl font-bold uppercase text-[hsl(var(--foreground))]">{product.name}</h2>
-                <p className="line-clamp-2 text-sm text-[hsl(var(--muted-foreground))]">{product.description}</p>
+                <p className="line-clamp-2 text-sm text-[hsl(var(--muted-foreground))]">{product.product_description}</p>
             </div>
           </a>
         ))}

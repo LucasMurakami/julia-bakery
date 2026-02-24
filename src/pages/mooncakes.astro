@@ -46,13 +46,13 @@ import { mooncakes } from '../lib/products';
               <div class="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end">
                 <div class="transform translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
                   <div class="bg-[hsl(var(--accent))] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full w-fit mb-2 shadow-sm">
-                    {mooncake.price}
+                    R$ {mooncake.price.toFixed(2).replace('.', ',')}
                   </div>
                   <h3 class="text-white text-xl md:text-2xl font-bold uppercase tracking-wide leading-tight mb-2 drop-shadow-md">
                     {mooncake.name}
                   </h3>
                   <p class="text-white/80 text-sm line-clamp-2 mb-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    {mooncake.description}
+                    {mooncake.product_description}
                   </p>
                   <div class="inline-flex items-center gap-2 text-white text-sm font-semibold uppercase tracking-wider opacity-0 transition-opacity duration-300 group-hover:opacity-100 delay-75">
                     Ver Detalhes 
