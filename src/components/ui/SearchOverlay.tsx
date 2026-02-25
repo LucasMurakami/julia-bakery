@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { allProducts } from '../../lib/products';
+import { allProducts } from '@/lib/products';
 
 type SearchOverlayProps = {
   isOpen: boolean;

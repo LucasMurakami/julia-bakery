@@ -1,9 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Nav from '../components/ui/Nav';
-import Footer from '../components/Footer.astro';
-import { allProducts } from '../lib/products';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
+import Layout from '@/layouts/Layout.astro';
+import Nav from '@/components/ui/Nav';
+import Footer from '@/components/Footer.astro';
+import { allProducts } from '@/lib/products';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 
 const favorites = allProducts.filter(p => p.bestseller);
 

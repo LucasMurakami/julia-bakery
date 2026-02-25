@@ -1,4 +1,4 @@
-import { ENABLED_CATEGORIES } from '../config';
+import { ENABLED_CATEGORIES } from '@/config';
 
 export interface Category {
   id: number;

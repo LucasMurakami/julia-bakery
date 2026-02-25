@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import SearchOverlay from './SearchOverlay';
 import SideMenu from './SideMenu';
 import ThemeToggle from './ThemeToggle';
-import { ENABLED_CATEGORIES } from '../../config';
+import { ENABLED_CATEGORIES } from '@/config';
 
 type NavProps = {
   forceOpaque?: boolean;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { allProducts, type Product } from '../../lib/products';
+import { allProducts, type Product } from '@/lib/products';
 
 export default function SearchResults() {
   const [query, setQuery] = useState('');
