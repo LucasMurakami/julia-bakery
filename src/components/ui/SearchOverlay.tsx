@@ -24,8 +24,8 @@ export default function SearchOverlay({ isOpen, isHidden, onClose }: SearchOverl
     const q = searchQuery.toLowerCase();
     const hasResults = allProducts.some(p => 
       p.name.toLowerCase().includes(q) || 
-      (p.description || '').toLowerCase().includes(q) ||
-      p.category.toLowerCase().includes(q) ||
+      (p.product_description || '').toLowerCase().includes(q) ||
+      p.category.name.toLowerCase().includes(q) ||
       (p.details || '').toLowerCase().includes(q)
     );
 

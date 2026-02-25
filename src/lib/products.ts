@@ -9,17 +9,17 @@ export interface Product {
     id: number;
     name: string;
     slug?: string;
-    category: Category; // Updated to use Category object
-    price: number; // Updated to number
+    category: Category;
+    price: number;
     product_description: string;
     funny_description: string;
-    ingredients: string; // csv
-    allergic_ingredients: string; // csv
+    ingredients: string;
+    allergic_ingredients: string;
     calories: number;
     discount: number;
     image: string;
     bestseller?: boolean;
-    details?: string; // deprecated, mapped to product_description
+    details?: string;
 }
 
 export const cakes: Product[] = [

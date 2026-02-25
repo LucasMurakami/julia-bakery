@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import Nav from '../components/ui/Nav';
+---
+
+<Layout>
+  <div class="min-h-screen bg-[hsl(var(--background))]">
+    <Nav client:load forceOpaque={true} />
+    
+    <main class="mt-16 pt-24 pb-16 px-6 md:px-10 lg:px-16">
+      <div class="mx-auto max-w-4xl">
+        <h1 class="text-4xl font-bold uppercase tracking-tight text-[hsl(var(--primary))] mb-8 md:text-5xl lg:text-6xl text-center">
+          Nossa História
+        </h1>
+        
+        <div class="grid gap-12 md:grid-cols-2 items-center mb-16">
+          <div class="space-y-6 text-lg text-[hsl(var(--muted-foreground))] leading-relaxed">
+            <p>
+              Tudo começou de uma forma inesperada. O que era para ser uma jornada pelos campos da <strong class="text-[hsl(var(--foreground))]">Agronomia</strong> acabou ganhando novos ingredientes.
+            </p>
+            <p>
+              Entre os estudos de solo e cultivo, percebi que minha trajetória precisava de uma nova direção. Foi então que decidi mudar o rumo para a <strong class="text-[hsl(var(--foreground))]">Administração</strong>, mergulhando no mundo da gestão e dos negócios.
+            </p>
+            <p>
+              Mas havia uma paixão que crescia em paralelo, pedindo passagem: a <strong class="text-[hsl(var(--foreground))]">confeitaria</strong>. O que servia como refúgio criativo entre uma aula e outra logo se mostrou ser o verdadeiro propósito.
+            </p>
+          </div>
+          <div class="relative aspect-square md:aspect-[4/5] overflow-hidden rounded-2xl bg-[hsl(var(--muted))] flex items-center justify-center">
+            {/* Placeholder for an image - using an emoji or icon for now if no image is available */}
+            <span class="text-9xl">👩‍🍳</span>
+          </div>
+        </div>
+
+        <div class="mt-24">
+          <h2 class="text-3xl font-bold text-center mb-16 uppercase text-[hsl(var(--foreground))]">A Mistura Especial</h2>
+          
+          <div class="grid md:grid-cols-3 gap-10 text-center">
+            <div class="space-y-4 px-4">
+              <div class="text-5xl mb-6">🌱</div>
+              <h3 class="text-xl font-bold uppercase tracking-wide">Raízes</h3>
+              <p class="text-[hsl(var(--muted-foreground))] leading-relaxed">
+                O cuidado e a paciência da Agronomia nos ensinaram a cultivar bons ingredientes e respeitar o tempo de cada processo.
+              </p>
+            </div>
+
+            <div class="space-y-4 px-4">
+              <div class="text-5xl mb-6">📊</div>
+              <h3 class="text-xl font-bold uppercase tracking-wide">Gestão</h3>
+              <p class="text-[hsl(var(--muted-foreground))] leading-relaxed">
+                A visão da Administração traz organização e excelência, garantindo qualidade constante em cada detalhe do nosso serviço.
+              </p>
+            </div>
+
+            <div class="space-y-4 px-4">
+              <div class="text-5xl mb-6">❤️</div>
+              <h3 class="text-xl font-bold uppercase tracking-wide">Paixão</h3>
+              <p class="text-[hsl(var(--muted-foreground))] leading-relaxed">
+                A confeitaria é o coração de tudo. É onde a técnica encontra a arte para criar momentos doces e inesquecíveis.
+              </p>
+            </div>
+          </div>
+
+          <p class="text-center text-lg font-medium text-[hsl(var(--primary))] mt-16 max-w-2xl mx-auto italic">
+            "Mudar de curso foi a melhor maneira de encontrar o caminho certo. A Pinckmax é o resultado dessa jornada."
+          </p>
+        </div>
+      </div>
+    </main>
+    
+    <Footer />
+  </div>
+</Layout>
