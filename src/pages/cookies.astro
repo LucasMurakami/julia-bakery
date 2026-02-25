@@ -2,14 +2,11 @@
 import Layout from '@/layouts/Layout.astro';
 import Nav from '@/components/ui/Nav';
 import Footer from '@/components/Footer.astro';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { cakes } from '@/lib/products';
+import { cookies } from '@/lib/products';
 
-// Removed local cakes array definition
 ---
 
-<Layout>
+<Layout title="Cookies Artesanais | Pinckmax">
   <div class="min-h-screen bg-[hsl(var(--background))]">
     <Nav client:load forceOpaque={true} />
     
@@ -20,17 +17,17 @@ import { cakes } from '@/lib/products';
             Nossa Confeitaria
           </p>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold uppercase text-[hsl(var(--foreground))]">
-            Bolos Artesanais
+            Cookies Artesanais
           </h1>
           <p class="mt-6 max-w-2xl mx-auto text-[hsl(var(--muted-foreground))] text-lg">
-             Feitos à mão com os melhores ingredientes. Do clássico ao contemporâneo, cada fatia é uma celebração de sabor.
+             Crocantes por fora, macios por dentro. Sabores únicos para adoçar o seu dia.
           </p>
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[300px]">
-          {cakes.map((cake, i) => (
+          {cookies.map((cookie, i) => (
             <a 
-              href={`/cakes/${cake.id}`} 
+              href={`/cookies/${cookie.id}`} 
               class={`group relative overflow-hidden rounded-3xl bg-neutral-100 dark:bg-neutral-800 shadow-md transition-all duration-500 hover:shadow-xl ${
                 i === 0 ? 'md:col-span-2 md:row-span-2' : 
                 'md:col-span-1 md:row-span-1'
@@ -39,8 +36,8 @@ import { cakes } from '@/lib/products';
               data-animate-delay={String((i % 3) + 1)}
             >
               <img 
-                src={cake.image} 
-                alt={cake.name} 
+                src={cookie.image} 
+                alt={cookie.name} 
                 class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               
@@ -49,13 +46,13 @@ import { cakes } from '@/lib/products';
               <div class="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end">
                 <div class="transform translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
                   <div class="bg-[hsl(var(--accent))] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full w-fit mb-2 shadow-sm">
-                    R$ {cake.price.toFixed(2).replace('.', ',')}
+                    {cookie.price ? `R$ ${cookie.price.toFixed(2).replace('.', ',')}` : "Consulte"}
                   </div>
                   <h3 class="text-white text-xl md:text-2xl font-bold uppercase tracking-wide leading-tight mb-2 drop-shadow-md">
-                    {cake.name}
+                    {cookie.name}
                   </h3>
                   <p class="text-white/80 text-sm line-clamp-2 mb-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    {cake.product_description}
+                    {cookie.product_description}
                   </p>
                   <div class="inline-flex items-center gap-2 text-white text-sm font-semibold uppercase tracking-wider opacity-0 transition-opacity duration-300 group-hover:opacity-100 delay-75">
                     Ver Detalhes 

@@ -1,9 +1,12 @@
 ---
+import cookiesBanner1 from '@/assets/cookies/Cookies-banner.jpg';
+import mooncakesBanner from '@/assets/mooncakes/Mooncake-banner.jpg';
+import mooncakeProduct from '@/assets/mooncakes/Mooncake-product-white.jpg';
+
 const heroImages = [
-	'https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1920&auto=format&fit=crop',
-	'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1920&auto=format&fit=crop',
-	'https://images.unsplash.com/photo-1495474473367-396633f689c?q=80&w=1920&auto=format&fit=crop',
-	'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1920&auto=format&fit=crop',
+	cookiesBanner1.src,
+	mooncakesBanner.src,
+	mooncakeProduct.src,
 ];
 ---
 
@@ -26,14 +29,14 @@ const heroImages = [
 	<div class="relative z-10 flex flex-1 flex-col justify-between px-6 pb-20 pt-28 md:px-10 lg:px-16">
 		<div class="flex flex-1 items-end">
 			<h1 class="hero-title max-w-2xl text-4xl font-bold uppercase leading-tight text-white drop-shadow-md md:text-5xl lg:text-6xl xl:text-7xl">
-				Um Affair de Amor com a Confeitaria
+				Felicidade em Cada Mordida
 			</h1>
 		</div>
 
 		<div class="hero-cta mt-8 flex justify-end">
 			<a
 				href="#about"
-				class="flex h-32 w-32 items-center justify-center rounded-full bg-[hsl(var(--accent))] text-sm font-bold uppercase tracking-wider text-white shadow-xl transition-transform hover:scale-105 md:h-32 md:w-32 md:text-base"
+				class="flex h-24 w-24 items-center justify-center rounded-full bg-[hsl(var(--accent))] text-xs font-bold uppercase tracking-wider text-white shadow-xl transition-transform hover:scale-105 md:h-32 md:w-32 md:text-sm lg:h-40 lg:w-40 lg:text-base xl:h-48 xl:w-48 xl:text-lg"
 				aria-label="Indulge - conheça nossa padaria"
 			>
 				<span class="rotate-[-8deg]">Peça Já!</span>

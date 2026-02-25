@@ -1,0 +1,65 @@
+---
+import { allProducts } from '@/lib/products';
+import { buttonVariants } from '@/components/ui/button';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+
+// Filter strictly for bestsellers
+const bestsellers = allProducts.filter(p => p.bestseller).slice(0, 3);
+// Fallback if none marked
+if (bestsellers.length === 0) {
+    bestsellers.push(...allProducts.slice(0, 3));
+}
+---
+
+<section id="bestsellers" class="py-24 bg-[hsl(var(--background))] sm:py-32 relative overflow-hidden">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+    <div class="mx-auto max-w-2xl text-center mb-16">
+      <h2 class="text-3xl font-bold uppercase tracking-wide text-[hsl(var(--foreground))] sm:text-4xl md:text-5xl">Nossos Favoritos</h2>
+      <div class="mt-4 h-1 w-24 bg-[hsl(var(--primary))] mx-auto rounded-full"></div>
+      <p class="mt-6 text-lg leading-8 text-[hsl(var(--muted-foreground))]">
+        Experimente os doces mais amados pelos nossos clientes. Feitos com ingredientes selecionados e muito amor.
+      </p>
+    </div>
+
+    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      {bestsellers.map((product) => (
+        <Card className="group relative flex flex-col overflow-hidden border-none shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <a href={`/${product.category.name}/${product.slug || product.id}`} class="absolute inset-0 z-20">
+             <span class="sr-only">Ver detalhes de {product.name}</span>
+          </a>
+          
+          <div class="relative w-full aspect-square overflow-hidden bg-[hsl(var(--muted))]">
+            <img
+              src={product.image}
+              alt={product.name}
+              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+             <div class="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/5"></div>
+          </div>
+          
+          <CardHeader className="text-center pt-6 pb-2">
+            <CardTitle className="text-xl font-bold uppercase leading-6 text-[hsl(var(--foreground))] group-hover:text-[hsl(var(--primary))] transition-colors">
+                {product.name}
+            </CardTitle>
+          </CardHeader>
+
+          <CardContent className="text-center pb-2">
+             <p class="line-clamp-2 text-sm text-[hsl(var(--muted-foreground))]">{product.product_description}</p>
+          </CardContent>
+            
+          <CardFooter className="justify-center pb-6 pt-2">
+             {product.price && (
+               <p class="text-lg font-medium text-[hsl(var(--primary))]">R$ {product.price.toFixed(2).replace('.', ',')}</p>
+            )}
+          </CardFooter>
+        </Card>
+      ))}
+    </div>
+    
+    <div class="mt-16 flex justify-center">
+        <a href="/favorites" class={buttonVariants({ variant: 'default', size: 'lg' }) + " uppercase tracking-widest font-bold"}>Ver Menu Completo</a>
+    </div>
+
+  </div>
+</section>

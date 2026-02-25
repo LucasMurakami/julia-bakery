@@ -3,16 +3,16 @@ import Layout from '@/layouts/Layout.astro';
 import Nav from '@/components/ui/Nav';
 import Footer from '@/components/Footer.astro';
 import { Button } from '@/components/ui/button';
-import { cakes } from '@/lib/products';
+import { mooncakes } from '@/lib/products';
 
 export function getStaticPaths() {
-  return cakes.map((cake) => ({
-    params: { id: cake.id.toString() },
-    props: { cake },
+  return mooncakes.map((mooncake) => ({
+    params: { id: mooncake.id.toString() },
+    props: { mooncake },
   }));
 }
 
-const { cake } = Astro.props;
+const { mooncake } = Astro.props;
 ---
 
 <Layout>
@@ -21,17 +21,17 @@ const { cake } = Astro.props;
     
     <main class="pt-32 pb-16 px-6 sm:px-8 md:px-12 lg:px-20 overflow-hidden">
       <div class="mx-auto max-w-6xl">
-        <a href="/cakes" class="inline-flex items-center text-sm font-semibold uppercase tracking-wider text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors mb-8 group">
+        <a href="/mooncakes" class="inline-flex items-center text-sm font-semibold uppercase tracking-wider text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors mb-8 group">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1"><path d="m15 18-6-6 6-6"/></svg>
-          Voltar para Bolos
+          Voltar para Mooncakes
         </a>
 
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <!-- Image Section -->
           <div class="relative aspect-square overflow-hidden rounded-2xl shadow-xl" data-animate>
             <img 
-              src={cake.image} 
-              alt={cake.name} 
+              src={mooncake.image} 
+              alt={mooncake.name} 
               class="h-full w-full object-cover"
             />
           </div>
@@ -39,16 +39,16 @@ const { cake } = Astro.props;
           <!-- Content Section -->
           <div class="flex flex-col h-full justify-center" data-animate data-animate-delay="1">
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-[hsl(var(--foreground))] mb-4">
-              {cake.name}
+              {mooncake.name}
             </h1>
             <div class="mb-6">
               <p class="text-2xl font-semibold text-[hsl(var(--primary))]">
-                R$ {cake.price.toFixed(2).replace('.', ',')}
+                R$ {mooncake.price.toFixed(2).replace('.', ',')}
               </p>
             </div>
             
             <p class="text-lg text-[hsl(var(--muted-foreground))] leading-relaxed mb-8">
-              {cake.product_description}
+              {mooncake.product_description}
             </p>
 
             <div class="space-y-6 mb-10 border-t border-b border-[hsl(var(--border))] py-8">
@@ -57,11 +57,12 @@ const { cake } = Astro.props;
                   <span class="text-xl">🥣</span> Ingredientes Principais
                 </h3>
                 <div class="flex flex-wrap gap-2">
-                  {cake.ingredients.split(',').map(ing => (
+                  {mooncake.ingredients?.split(',').map(ing => (
                     <span class="bg-white dark:bg-neutral-800 px-3 py-1 rounded-full text-sm border border-[hsl(var(--border))] text-[hsl(var(--muted-foreground))]">
                       {ing.trim()}
                     </span>
                   ))}
+                  {!mooncake.ingredients && <span class="text-sm">Consulte a descrição.</span>}
                 </div>
               </div>
               
@@ -70,7 +71,7 @@ const { cake } = Astro.props;
                    <span class="text-xl">⚠️</span> Alérgenos
                 </h3>
                 <p class="text-sm text-[hsl(var(--muted-foreground))]">
-                  {cake.allergic_ingredients}.
+                  {mooncake.allergic_ingredients || 'Sem informação específica.'}
                 </p>
               </div>
             </div>
