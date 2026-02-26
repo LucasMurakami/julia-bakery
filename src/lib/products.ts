@@ -5,6 +5,10 @@ import {
   CATEGORY_COOKIES,
   CATEGORY_MOONCAKES,
 } from '@/lib/category';
+import mooncakeVanillaImg from '@/assets/mooncakes/AI/Mooncake-vanilla.webp';
+import mooncakeMatchaImg from '@/assets/mooncakes/AI/Mooncake-matcha.webp';
+import mooncakeChocolateImg from '@/assets/mooncakes/AI/Mooncake-chocolate.webp';
+import mooncakeLemonImg from '@/assets/mooncakes/AI/Mooncake-lemon.webp';
 
 export type { Category };
 export { allCategories } from '@/lib/category';
@@ -149,7 +153,7 @@ export const mooncakes: Product[] = [
     id: 201,
     name: 'Mooncake Vanilla',
     slug: 'mooncake-vanilla',
-    image: 'https://images.unsplash.com/photo-1632598380292-693246377265?q=80&w=1000&auto=format&fit=crop',
+    image: mooncakeVanillaImg.src,
     categories: [CATEGORY_MOONCAKES],
     details: 'Suave e aromático. Recheio cremoso de baunilha envolto em uma massa delicada, com o equilíbrio perfeito entre doçura e fragrância.',
     product_description: 'Suave e aromático. Recheio cremoso de baunilha envolto em uma massa delicada, com o equilíbrio perfeito entre doçura e fragrância.',
@@ -165,7 +169,7 @@ export const mooncakes: Product[] = [
     id: 202,
     name: 'Mooncake Matcha',
     slug: 'mooncake-matcha',
-    image: 'https://images.unsplash.com/photo-1536553832049-7b3e80064f2d?q=80&w=1000&auto=format&fit=crop',
+    image: mooncakeMatchaImg.src,
     categories: [CATEGORY_MOONCAKES],
     details: 'O amargor aromático do matcha premium encontra uma massa suave e levemente adocicada. Uma interpretação moderna e elegante do mooncake tradicional.',
     product_description: 'O amargor aromático do matcha premium encontra uma massa suave e levemente adocicada.',
@@ -180,7 +184,7 @@ export const mooncakes: Product[] = [
     id: 203,
     name: 'Mooncake Chocolate',
     slug: 'mooncake-chocolate',
-    image: 'https://images.unsplash.com/photo-1599307406981-229ca230537f?q=80&w=1000&auto=format&fit=crop',
+    image: mooncakeChocolateImg.src,
     categories: [CATEGORY_MOONCAKES],
     details: 'Uma fusão irresistível entre a tradição do mooncake e o prazer do chocolate belga. Recheio rico e intenso, com massa macia que derrete na boca.',
     product_description: 'Uma fusão irresistível entre a tradição do mooncake e o prazer do chocolate belga. Recheio rico e intenso.',
@@ -195,7 +199,7 @@ export const mooncakes: Product[] = [
     id: 204,
     name: 'Mooncake Lemon',
     slug: 'mooncake-lemon',
-    image: 'https://images.unsplash.com/photo-1519340333755-56e9c1d04579?q=80&w=1000&auto=format&fit=crop',
+    image: mooncakeLemonImg.src,
     categories: [CATEGORY_MOONCAKES],
     details: 'Refrescante e vibrante. O curd de limão siciliano traz acidez e frescor ao recheio, contrastando perfeitamente com a massa dourada e levemente adocicada.',
     product_description: 'Refrescante e vibrante. O curd de limão siciliano traz acidez e frescor ao recheio.',
