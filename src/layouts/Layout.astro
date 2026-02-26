@@ -7,7 +7,7 @@ import '../styles/globals.css';
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="color-scheme" content="light dark" />
+		<meta id="color-scheme-meta" name="color-scheme" content="light" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,6 +31,8 @@ import '../styles/globals.css';
 			};
 			const isDark = getThemePreference() === 'dark';
 			document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+			const meta = document.getElementById('color-scheme-meta');
+			if (meta) meta.setAttribute('content', isDark ? 'dark' : 'light');
 		</script>
 	</head>
 	<body class="m-0 min-h-full w-full overflow-x-hidden">

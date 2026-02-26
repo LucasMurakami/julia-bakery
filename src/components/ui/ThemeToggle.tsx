@@ -26,6 +26,8 @@ export default function ThemeToggle() {
       root.classList.remove("dark")
     }
     localStorage.setItem("theme", theme)
+    const meta = document.getElementById("color-scheme-meta")
+    if (meta) meta.setAttribute("content", theme)
   }, [theme, hasMounted])
 
   const toggleTheme = () => {

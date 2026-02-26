@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-	color-scheme: light dark;
+	color-scheme: light;
 	--background: 40 33% 98%;
 	--foreground: 180 15% 18%;
 	--card: 0 0% 100%;
@@ -34,6 +34,7 @@
 }
 
 .dark {
+	color-scheme: dark;
 	--background: 30 15% 8%;
 	--foreground: 40 20% 90%;
 	--card: 30 12% 12%;
