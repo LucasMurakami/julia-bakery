@@ -1,5 +1,6 @@
 ---
 import '../styles/globals.css';
+import  SpeedInsights  from "@vercel/speed-insights/astro"
 ---
 
 <!doctype html>
@@ -50,6 +51,7 @@ import '../styles/globals.css';
 	</head>
 	<body class="m-0 min-h-full w-full overflow-x-hidden">
 		<slot />
+		<SpeedInsights />
 		<script>
 			import { initSmoothScroll, initScrollAnimations } from '@/scripts/smoothScroll';
 			document.addEventListener('DOMContentLoaded', () => {
