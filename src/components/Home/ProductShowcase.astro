@@ -24,7 +24,7 @@ if (bestsellers.length === 0) {
     <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
       {bestsellers.map((product) => (
         <Card className="group relative flex flex-col overflow-hidden border-none shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-          <a href={`/${product.category.name}/${product.slug || product.id}`} class="absolute inset-0 z-20">
+          <a href={`/${product.categories[0].name}/${product.slug || product.id}`} class="absolute inset-0 z-20">
              <span class="sr-only">Ver detalhes de {product.name}</span>
           </a>
           
@@ -58,7 +58,7 @@ if (bestsellers.length === 0) {
     </div>
     
     <div class="mt-16 flex justify-center">
-        <a href="/favorites" class={buttonVariants({ variant: 'default', size: 'lg' }) + " uppercase tracking-widest font-bold"}>Ver Menu Completo</a>
+        <a href="/search?filter=bestseller" class={buttonVariants({ variant: 'default', size: 'lg' }) + " uppercase tracking-widest font-bold"}>Ver Todos os Favoritos</a>
     </div>
 
   </div>

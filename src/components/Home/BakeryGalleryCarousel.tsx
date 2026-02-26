@@ -1,36 +1,16 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 
+import cookiesBannerImg from '../../assets/cookies/Cookies-banner.webp';
+import mooncakeBannerImg from '../../assets/mooncakes/Mooncake-banner.webp';
+import mooncakeWhite2Img from '../../assets/mooncakes/Mooncake-product-white-2.webp';
+
 const galleryImages = [
-	{
-		src: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop',
-		full: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1400&auto=format&fit=crop',
-		alt: 'Pão artesanal',
-	},
-	{
-		src: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop',
-		full: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1400&auto=format&fit=crop',
-		alt: 'Pão recém assado',
-	},
-	{
-		src: 'https://images.unsplash.com/photo-1495474473367-396633f689c?q=80&w=600&auto=format&fit=crop',
-		full: 'https://images.unsplash.com/photo-1495474473367-396633f689c?q=80&w=1400&auto=format&fit=crop',
-		alt: 'Café e pão',
-	},
-	{
-		src: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600&auto=format&fit=crop',
-		full: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1400&auto=format&fit=crop',
-		alt: 'Latte art',
-	},
-	{
-		src: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop',
-		full: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=1400&auto=format&fit=crop',
-		alt: 'Cookies',
-	},
-	{
-		src: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?q=80&w=600&auto=format&fit=crop',
-		full: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?q=80&w=1400&auto=format&fit=crop',
-		alt: 'Donuts coloridos',
-	},
+	{ src: mooncakeBannerImg.src, alt: 'Mooncake banner' },
+	{ src: cookiesBannerImg.src,  alt: 'Cookies' },
+	{ src: mooncakeWhite2Img.src, alt: 'Mooncake branco' },
+    { src: mooncakeBannerImg.src, alt: 'Mooncake banner' },
+	{ src: cookiesBannerImg.src,  alt: 'Cookies' },
+	{ src: mooncakeWhite2Img.src, alt: 'Mooncake branco' },
 ];
 
 const ITEM_WIDTH = 320;
@@ -209,7 +189,7 @@ export default function BakeryGalleryCarousel() {
 						onClick={(e) => e.stopPropagation()}
 					>
 						<img
-							src={lightbox.full}
+							src={lightbox.src}
 							alt={lightbox.alt}
 							className="max-h-[90vh] max-w-[90vw] rounded-2xl object-contain shadow-2xl"
 							style={{ animation: 'lightbox-zoom 0.25s ease' }}
