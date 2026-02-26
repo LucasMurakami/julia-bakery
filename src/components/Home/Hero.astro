@@ -18,7 +18,7 @@ const heroSlides = [cookiesBanner1, mooncakesBanner, mooncakeProduct];
 				width={image.width}
 				height={image.height}
 				alt=""
-				class="hero-slide absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-[1500ms] ease-out"
+				class={`hero-slide absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-[1500ms] ease-out ${i === 0 ? 'opacity-100' : 'opacity-0'}`}
 				data-slide={i}
 				fetchpriority={i === 0 ? 'high' : 'low'}
 				loading={i === 0 ? 'eager' : 'lazy'}
@@ -68,10 +68,12 @@ const heroSlides = [cookiesBanner1, mooncakesBanner, mooncakeProduct];
 		if (!slides.length) return;
 		const SLIDE_DURATION = 5000;
 		let current = 0;
-		slides[0].classList.add('opacity-100');
+		
 		setInterval(() => {
 			slides[current].classList.remove('opacity-100');
+			slides[current].classList.add('opacity-0');
 			current = (current + 1) % slides.length;
+			slides[current].classList.remove('opacity-0');
 			slides[current].classList.add('opacity-100');
 		}, SLIDE_DURATION);
 	}
