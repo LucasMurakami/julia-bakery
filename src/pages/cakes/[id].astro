@@ -3,19 +3,19 @@ import Layout from '@/layouts/Layout.astro';
 import Nav from '@/components/ui/Nav';
 import Footer from '@/components/Footer.astro';
 import { Button } from '@/components/ui/button';
-import { cakes } from '@/lib/products';
+// import { cakes } from '@/lib/products';
 
-export function getStaticPaths() {
-  return cakes.map((cake) => ({
-    params: { id: cake.id.toString() },
-    props: { cake },
-  }));
-}
+// export function getStaticPaths() {
+//   return cakes.map((cake) => ({
+//     params: { id: cake.id.toString() },
+//     props: { cake },
+//   }));
+// }
 
-const { cake } = Astro.props;
+// const { cake } = Astro.props;
 ---
 
-<Layout>
+<!-- <Layout>
   <div class="min-h-screen bg-[hsl(var(--background))]">
     <Nav client:load forceOpaque={true} />
     
@@ -26,18 +26,18 @@ const { cake } = Astro.props;
           Voltar para Bolos
         </a>
 
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start"> -->
           <!-- Image Section -->
-          <div class="relative aspect-square overflow-hidden rounded-2xl shadow-xl" data-animate>
+          <!-- <div class="relative aspect-square overflow-hidden rounded-2xl shadow-xl" data-animate>
             <img 
               src={cake.image} 
               alt={cake.name} 
               class="h-full w-full object-cover"
             />
-          </div>
+          </div> -->
 
           <!-- Content Section -->
-          <div class="flex flex-col h-full justify-center" data-animate data-animate-delay="1">
+          <!-- <div class="flex flex-col h-full justify-center" data-animate data-animate-delay="1">
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-[hsl(var(--foreground))] mb-4">
               {cake.name}
             </h1>
@@ -85,4 +85,4 @@ const { cake } = Astro.props;
     
     <Footer />
   </div>
-</Layout>
+</Layout> -->
