@@ -3,11 +3,7 @@ import cookiesBanner1 from '@/assets/cookies/Cookies-banner.webp';
 import mooncakesBanner from '@/assets/mooncakes/Mooncake-banner.webp';
 import mooncakeProduct from '@/assets/mooncakes/Mooncake-product-white.webp';
 
-const heroImages = [
-	cookiesBanner1.src,
-	mooncakesBanner.src,
-	mooncakeProduct.src,
-];
+const heroSlides = [cookiesBanner1, mooncakesBanner, mooncakeProduct];
 ---
 
 <section
@@ -16,12 +12,18 @@ const heroImages = [
 >
 	<!-- Image carousel (crossfade) -->
 	<div class="absolute inset-0" aria-hidden="true">
-		{heroImages.map((url, i) => (
-			<div
-				class="hero-slide absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-[1500ms] ease-out"
-				style={`background-image: url('${url}');`}
+		{heroSlides.map((image, i) => (
+			<img
+				src={image.src}
+				width={image.width}
+				height={image.height}
+				alt=""
+				class="hero-slide absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-[1500ms] ease-out"
 				data-slide={i}
-			></div>
+				fetchpriority={i === 0 ? 'high' : 'low'}
+				loading={i === 0 ? 'eager' : 'lazy'}
+				decoding={i === 0 ? 'sync' : 'async'}
+			/>
 		))}
 	</div>
 	<div class="absolute inset-0 bg-black/35" aria-hidden="true"></div>
@@ -81,13 +83,11 @@ const heroImages = [
 		min-height: 100dvh;
 	}
 	.hero-title {
-		opacity: 0;
-		transform: translateY(24px);
-		animation: heroTitleIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+		transform: translateY(20px);
+		animation: heroTitleIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
 	}
 	@keyframes heroTitleIn {
 		to {
-			opacity: 1;
 			transform: translateY(0);
 		}
 	}
