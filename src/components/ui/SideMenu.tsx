@@ -64,7 +64,7 @@ export default function SideMenu({ isOpen, onClose, links }: SideMenuProps) {
                   <a 
                     href={href} 
                     onClick={onClose} 
-                    className="hover:text-[hsl(var(--accent))] transition-colors duration-300"
+                    className="hover:text-[hsl(var(--accent))]"
                   >
                     {label}
                   </a>
