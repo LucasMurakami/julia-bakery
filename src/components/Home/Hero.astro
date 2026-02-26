@@ -7,7 +7,7 @@ const heroSlides = [cookiesBanner1, mooncakesBanner, mooncakeProduct];
 ---
 
 <section
-	class="hero-section relative flex min-h-[100dvh] flex-col justify-between overflow-hidden bg-neutral-800"
+	class="hero-section relative flex min-h-[100svh] flex-col justify-between overflow-hidden bg-neutral-800"
 	aria-label="Hero"
 >
 	<!-- Image carousel (crossfade) -->
@@ -68,7 +68,6 @@ const heroSlides = [cookiesBanner1, mooncakesBanner, mooncakeProduct];
 		if (!slides.length) return;
 		const SLIDE_DURATION = 5000;
 		let current = 0;
-		
 		setInterval(() => {
 			slides[current].classList.remove('opacity-100');
 			slides[current].classList.add('opacity-0');
@@ -81,8 +80,8 @@ const heroSlides = [cookiesBanner1, mooncakesBanner, mooncakeProduct];
 </script>
 
 <style>
-	:global(.min-h-\[100dvh\]) {
-		min-height: 100dvh;
+	:global(.min-h-\[100svh\]) {
+		min-height: 100svh;
 	}
 	.hero-title {
 		transform: translateY(20px);
