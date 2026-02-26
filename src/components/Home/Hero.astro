@@ -26,17 +26,16 @@ const heroImages = [
 	</div>
 	<div class="absolute inset-0 bg-black/35" aria-hidden="true"></div>
 
-	<div class="relative z-10 flex flex-1 flex-col justify-between px-6 pb-20 pt-28 md:px-10 lg:px-16">
-		<div class="flex flex-1 items-end">
-			<h1 class="hero-title max-w-2xl text-4xl font-bold uppercase leading-tight text-white drop-shadow-md md:text-5xl lg:text-6xl xl:text-7xl">
-				Felicidade em Cada Mordida
-			</h1>
-		</div>
-
-		<div class="hero-cta mt-8 flex justify-end">
+	<div class="relative z-10 flex flex-1 flex-col justify-end px-6 pb-20 pt-28 md:justify-between md:px-10 lg:px-16">
+		<div class="hero-cta flex items-end justify-between gap-8 md:flex-1 md:flex-col md:items-start md:justify-between">
+			<div class="contents md:flex md:flex-1 md:items-end">
+				<h1 class="hero-title max-w-2xl text-4xl font-bold uppercase leading-tight text-white drop-shadow-md md:text-5xl lg:text-6xl xl:text-7xl">
+					Felicidade em Cada Mordida
+				</h1>
+			</div>
 			<a
 				href="#about"
-				class="flex h-24 w-24 items-center justify-center rounded-full bg-[hsl(var(--accent))] text-xs font-bold uppercase tracking-wider text-white shadow-xl transition-transform hover:scale-105 md:h-32 md:w-32 md:text-sm lg:h-40 lg:w-40 lg:text-base xl:h-48 xl:w-48 xl:text-lg"
+				class="flex h-24 w-24 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--accent))] text-xs font-bold uppercase tracking-wider text-white shadow-xl transition-transform hover:scale-105 md:h-32 md:w-32 md:self-end md:text-sm lg:h-40 lg:w-40 lg:text-base xl:h-48 xl:w-48 xl:text-lg"
 				aria-label="Indulge - conheça nossa padaria"
 			>
 				<span class="rotate-[-8deg]">Peça Já!</span>
