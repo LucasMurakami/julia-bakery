@@ -10,6 +10,7 @@ export default function ThemeToggle() {
     const handleClick = () => {
       const root = document.documentElement
       root.classList.add("theme-transition")
+      root.getBoundingClientRect()
       const dark = root.classList.toggle("dark")
       localStorage.setItem("theme", dark ? "dark" : "light")
       const meta = document.getElementById("color-scheme-meta")
@@ -21,9 +22,6 @@ export default function ThemeToggle() {
     return () => btn.removeEventListener("click", handleClick)
   }, [])
 
-  // dangerouslySetInnerHTML keeps both SVGs out of React's reconciliation tree,
-  // so hydration never touches/repaints them. CSS dark: classes swap visibility
-  // instantly via the .dark class that Layout.astro sets before first paint.
   return (
     <button
       ref={btnRef}

@@ -72,10 +72,13 @@ html.theme-transition *::after {
 		border-color 300ms ease, text-decoration-color 300ms ease;
 }
 
-/* The nav icon container (cart, search, theme toggle) inherits its text color
-   from a parent div that switches between text-white and text-foreground based
-   on scroll state. Letting that color animate during theme-transition causes
-   visible SVG stroke flickering. Disable all transitions on this subtree. */
+html.theme-transition [data-animate] {
+	transition: color 300ms ease, background-color 300ms ease,
+		border-color 300ms ease, text-decoration-color 300ms ease,
+		opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+		transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 html.theme-transition .no-theme-transition,
 html.theme-transition .no-theme-transition * {
 	transition: none !important;
