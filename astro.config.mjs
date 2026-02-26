@@ -6,6 +6,12 @@ import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
+	output: 'static',
 	adapter: vercel(),
 	integrations: [react(), tailwind()],
+	vite: {
+		build: {
+			assetsInlineLimit: 0,
+		},
+	},
 });
