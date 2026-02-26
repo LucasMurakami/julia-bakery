@@ -1,17 +1,12 @@
 ---
-const galleryImages = [
-	'https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop',
-	'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop',
-	'https://images.unsplash.com/photo-1495474473367-396633f689c?q=80&w=600&auto=format&fit=crop',
-	'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600&auto=format&fit=crop',
-	'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop',
-	'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?q=80&w=600&auto=format&fit=crop',
-];
-// Two identical rows for seamless -50% loop
-const allImages = [...galleryImages, ...galleryImages];
+import BakeryGalleryCarousel from './BakeryGalleryCarousel.tsx';
 ---
 
-<section data-animate class="bakery-gallery relative overflow-hidden bg-[hsl(var(--background))] py-12 md:py-16" aria-label="Galeria da padaria">
+<section
+	data-animate
+	class="bakery-gallery relative overflow-hidden bg-[hsl(var(--background))] py-12 md:py-16"
+	aria-label="Galeria da padaria"
+>
 	<div class="mb-8 px-6 text-center md:px-10 lg:px-16">
 		<p class="text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(var(--muted-foreground))]">
 			Nossa casa
@@ -20,56 +15,6 @@ const allImages = [...galleryImages, ...galleryImages];
 			Um pouco do nosso cantinho
 		</h2>
 	</div>
-	<div class="bakery-gallery-mask overflow-hidden">
-		<div class="bakery-gallery-track">
-			{allImages.map((url, i) => (
-				<div class="bakery-gallery-item flex-shrink-0 overflow-hidden rounded-2xl bg-neutral-200 dark:bg-neutral-800">
-					<img
-						src={url}
-						alt=""
-						class="h-full w-full object-cover"
-						width="320"
-						height="320"
-						fetchpriority={i < 4 ? "high" : "low"}
-						loading={i < 4 ? "eager" : "lazy"}
-					/>
-				</div>
-			))}
-		</div>
-	</div>
-</section>
 
-<style>
-	.bakery-gallery-mask {
-		width: 100%;
-	}
-	.bakery-gallery-track {
-		display: flex;
-		gap: 1.25rem;
-		width: max-content;
-		animation: gallery-scroll 50s linear infinite;
-		will-change: transform;
-		padding-left: 0;
-	}
-	.bakery-gallery:hover .bakery-gallery-track {
-		animation-play-state: paused;
-	}
-	.bakery-gallery-item {
-		height: 18rem;
-		width: 18rem;
-	}
-	@media (min-width: 768px) {
-		.bakery-gallery-item {
-			height: 20rem;
-			width: 20rem;
-		}
-	}
-	@keyframes gallery-scroll {
-		0% {
-			transform: translateX(0);
-		}
-		100% {
-			transform: translateX(-50%);
-		}
-	}
-</style>
+	<BakeryGalleryCarousel client:load />
+</section>

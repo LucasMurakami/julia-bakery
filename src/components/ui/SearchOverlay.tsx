@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { allProducts } from '@/lib/products';
+import SearchInput from '@/components/ui/SearchInput';
 
 type SearchOverlayProps = {
   isOpen: boolean;
@@ -25,7 +26,7 @@ export default function SearchOverlay({ isOpen, isHidden, onClose }: SearchOverl
     const hasResults = allProducts.some(p => 
       p.name.toLowerCase().includes(q) || 
       (p.product_description || '').toLowerCase().includes(q) ||
-      p.category.name.toLowerCase().includes(q) ||
+      p.categories.some((c) => c.name.toLowerCase().includes(q)) ||
       (p.details || '').toLowerCase().includes(q)
     );
 
@@ -45,22 +46,15 @@ export default function SearchOverlay({ isOpen, isHidden, onClose }: SearchOverl
           : (isHidden ? 'hidden' : '-translate-y-10 opacity-0 invisible pointer-events-none')
       }`}>
         <div className="w-full max-w-4xl mx-auto flex items-center gap-4">
-          <form onSubmit={handleSearch} className="flex-1 flex items-center gap-2">
-            <input
-              ref={searchInputRef}
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="PRODUTO, COLEÇÃO, PÁGINA..."
-              className="w-full rounded-full bg-[hsl(var(--accent))] px-6 py-3 text-sm font-bold uppercase tracking-wider text-white placeholder:text-white/70 outline-none transition-all focus:ring-2 focus:ring-[hsl(var(--accent))] focus:ring-offset-2"
-            />
-            <button 
-              type="submit"
-              className="rounded-full bg-neutral-900 dark:bg-neutral-100 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white dark:text-neutral-900 transition-all hover:bg-neutral-800 dark:hover:bg-neutral-200"
-            >
-              Buscar
-            </button>
-          </form>
+          <SearchInput
+            value={searchQuery}
+            onChange={setSearchQuery}
+            onSubmit={handleSearch}
+            onClear={() => setSearchQuery('')}
+            placeholder="PRODUTO, COLEÇÃO, PÁGINA..."
+            variant="overlay"
+            inputRef={searchInputRef}
+          />
         </div>
     </div>
   );
