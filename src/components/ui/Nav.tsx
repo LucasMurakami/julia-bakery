@@ -78,25 +78,25 @@ export default function Nav({ forceOpaque = false }: NavProps) {
         />
 
         <nav className="relative z-[60] flex items-center justify-between gap-6 px-6 py-5 md:px-10 lg:px-16">
-          <a href="/" className={`text-xl font-bold uppercase tracking-wide md:text-2xl transition-colors duration-300 ${
+          <a href="/" className={`text-xl font-bold uppercase tracking-wide md:text-2xl ${
              isScrolled || forceOpaque || isSearchBgVisible ? 'text-[hsl(var(--foreground))]' : 'text-white'
           }`}>
             Pinckmax
           </a>
           
-          <ul className={`absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 text-sm font-medium uppercase tracking-wider lg:flex transition-colors duration-300 ${
+          <ul className={`absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 text-sm font-medium uppercase tracking-wider lg:flex ${
             isScrolled || forceOpaque || isSearchBgVisible ? 'text-[hsl(var(--foreground))]' : 'text-white/95'
           }`}>
             {links.map(({ href, label }) => (
               <li key={href}>
-                <a href={href} className={`transition-colors duration-300 ${isScrolled || forceOpaque || isSearchBgVisible ? 'hover:text-[hsl(var(--accent))]' : 'hover:text-white'}`}>
+                <a href={href} className={`${isScrolled || forceOpaque || isSearchBgVisible ? 'hover:text-[hsl(var(--accent))]' : 'hover:text-white'}`}>
                   {label}
                 </a>
               </li>
             ))}
           </ul>
 
-          <div className={`ml-auto flex items-center gap-5 transition-colors duration-300 ${
+          <div className={`no-theme-transition ml-auto flex items-center gap-5 ${
             isScrolled || forceOpaque || isSearchBgVisible ? 'text-[hsl(var(--foreground))]' : 'text-white'
           }`}>
              <div>

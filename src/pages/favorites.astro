@@ -41,7 +41,7 @@ if (favorites.length === 0) {
                   class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
-                 <div class="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/5"></div>
+                 <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5"></div>
                  <div class="absolute top-2 right-2 z-10">
                     <span class="inline-flex items-center rounded-full bg-[hsl(var(--primary))] px-2.5 py-0.5 text-xs font-semibold text-[hsl(var(--primary-foreground))] shadow-md">
                         Favorito
@@ -50,7 +50,7 @@ if (favorites.length === 0) {
               </div>
               
               <CardHeader className="text-center pt-6 pb-2">
-                <CardTitle className="text-lg font-bold uppercase leading-6 text-[hsl(var(--foreground))] group-hover:text-[hsl(var(--primary))] transition-colors">
+                <CardTitle className="text-lg font-bold uppercase leading-6 text-[hsl(var(--foreground))] group-hover:text-[hsl(var(--primary))]">  
                     {product.name}
                 </CardTitle>
               </CardHeader>
