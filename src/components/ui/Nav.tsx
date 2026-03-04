@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import SearchOverlay from './SearchOverlay';
-import SideMenu from './SideMenu';
-import ThemeToggle from './ThemeToggle';
+import SearchOverlay from '@/components/ui/SearchOverlay';
+import SideMenu from '@/components/ui/SideMenu';
+import ThemeToggle from '@/components/ui/ThemeToggle';
 import { ENABLED_CATEGORIES } from '@/config';
 
 type NavProps = {

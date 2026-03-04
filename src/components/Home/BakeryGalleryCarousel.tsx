@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 
-import cookiesBannerImg from '../../assets/cookies/Cookies-banner.webp';
-import mooncakeBannerImg from '../../assets/mooncakes/Mooncake-banner.webp';
-import mooncakeWhite2Img from '../../assets/mooncakes/Mooncake-product-white-2.webp';
+import cookiesBannerImg from '@/assets/cookies/Cookies-banner.webp';
+import mooncakeBannerImg from '@/assets/mooncakes/Mooncake-banner.webp';
+import mooncakeWhite2Img from '@/assets/mooncakes/Mooncake-product-white-2.webp';
 
 const galleryImages = [
 	{ src: mooncakeBannerImg.src, alt: 'Mooncake banner' },
