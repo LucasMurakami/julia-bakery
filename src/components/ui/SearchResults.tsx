@@ -292,33 +292,31 @@ export default function SearchResults() {
               {results.map((product) => (
                 <a
                   key={product.id}
-                  href={`/${product.categories[0].name}/${product.slug || product.id}`}
+                  href={`/${product.categories[0].name}/${product.id}`}
                   className="group relative block overflow-hidden rounded-2xl bg-neutral-100 dark:bg-[hsl(var(--card))] shadow-sm transition-all hover:shadow-md"
                 >
-                  <div className="aspect-square overflow-hidden">
+                  <div className="relative aspect-square overflow-hidden">
                     <img
                       src={product.image}
                       alt={product.name}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
+                    {product.bestseller && (
+                      <span className="absolute left-3 top-3 rounded-full bg-[hsl(var(--primary))] px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-[hsl(var(--primary-foreground))] shadow">
+                        Favorito
+                      </span>
+                    )}
                   </div>
                   <div className="p-5">
-                    <div className="mb-2 flex items-center justify-between gap-2">
+                    <div className="mb-2 flex items-center justify-between g qap-2">
                       <span className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent))]">
                         {product.categories[0].label}
                       </span>
-                      <div className="flex items-center gap-2">
-                        {product.bestseller && (
-                          <span className="rounded-full bg-[hsl(var(--primary))] px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-[hsl(var(--primary-foreground))]">
-                            Favorito
-                          </span>
-                        )}
-                        {product.price && (
-                          <span className="font-semibold text-[hsl(var(--primary))]">
-                            R$ {product.price.toFixed(2).replace('.', ',')}
-                          </span>
-                        )}
-                      </div>
+                      {product.price && (
+                        <span className="font-semibold text-[hsl(var(--primary))]">
+                          R$ {product.price.toFixed(2).replace('.', ',')}
+                        </span>
+                      )}
                     </div>
                     <h2 className="mb-1.5 text-lg font-bold uppercase text-[hsl(var(--foreground))]">
                       {product.name}

@@ -178,7 +178,8 @@ export const mooncakes: Product[] = [
     ingredients: 'Pó de Matcha Premium, Pasta de Feijão Branco, Farinha de Trigo, Xarope Dourado',
     allergic_ingredients: 'Glúten',
     calories: 400,
-    discount: 0
+    discount: 0,
+    bestseller: true
   },
   {
     id: 203,
