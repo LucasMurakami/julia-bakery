@@ -66,7 +66,7 @@ export default function FlavorMarquee() {
 	return (
 		<section
 			className="overflow-hidden border-y border-[hsl(var(--border))] py-4"
-			style={{ cursor: isDragging ? 'grabbing' : 'grab', userSelect: 'none' }}
+			style={{ cursor: isDragging ? 'grabbing' : 'grab', userSelect: 'none', touchAction: 'none' }}
 			onMouseEnter={() => { isHoveredRef.current = true; }}
 			onMouseLeave={() => { isHoveredRef.current = false; }}
 			onPointerDown={handlePointerDown}

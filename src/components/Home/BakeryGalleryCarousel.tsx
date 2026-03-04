@@ -114,7 +114,7 @@ export default function BakeryGalleryCarousel() {
 				onPointerMove={handlePointerMove}
 				onPointerUp={handlePointerUp}
 				onPointerCancel={handlePointerUp}
-				style={{ cursor: isDragging ? 'grabbing' : 'grab', userSelect: 'none' }}
+				style={{ cursor: isDragging ? 'grabbing' : 'grab', userSelect: 'none', touchAction: 'none' }}
 			>
 				<div
 					ref={trackRef}
