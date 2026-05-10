@@ -9,6 +9,9 @@ import mooncakeVanillaImg from '@/assets/mooncakes/AI/Mooncake-vanilla.webp';
 import mooncakeMatchaImg from '@/assets/mooncakes/AI/Mooncake-matcha.webp';
 import mooncakeChocolateImg from '@/assets/mooncakes/AI/Mooncake-chocolate.webp';
 import mooncakeLemonImg from '@/assets/mooncakes/AI/Mooncake-lemon.webp';
+import cookieChocolateImg from '@/assets/cookies/Chocolate_Cookies.webp';
+import cookieStikadinhoImg from '@/assets/cookies/Stikadinho_Cookies.webp';
+import cookieMmsImg from '@/assets/cookies/M&MS_Cookies.webp';
 
 export type { Category };
 export { allCategories } from '@/lib/category';
@@ -131,17 +134,49 @@ export interface Product {
 export const cookies: Product[] = [
   { 
     id: 101, 
-    name: 'Standard Cookie', 
+    name: 'Cookies com gotas de chocolate', 
     slug: 'standard-cookie', 
-    image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&h=400&fit=crop',
+    image: cookieChocolateImg.src,
     categories: [CATEGORY_COOKIES],
-    details: 'O clássico infalível. Massa amanteigada, crocante por fora e macia por dentro, com um sabor suave e reconfortante que agrada a todos.',
-    product_description: 'O clássico infalível. Massa amanteigada, crocante por fora e macia por dentro, com um sabor suave e reconfortante.',
-    funny_description: 'O cookie que todos conhecem e amam. Simples, honesto e absolutamente irresistível.',
+    details: 'O clássico infalível agora com gotas generosas de chocolate. Massa amanteigada, crocante por fora e macia por dentro, com pedacinhos que derretem a cada mordida.',
+    product_description: 'Massa amanteigada com gotas de chocolate, crocante por fora e macia por dentro, com sabor reconfortante e envolvente.',
+    funny_description: 'O cookie que todos conhecem e amam, agora com chocolate em dobro. Simples, honesto e absolutamente irresistível.',
     price: 10.00,
-    ingredients: 'Farinha de Trigo, Manteiga, Açúcar, Ovos, Extrato de Baunilha, Sal',
-    allergic_ingredients: 'Glúten, Leite, Ovos',
-    calories: 220,
+    ingredients: 'Farinha de Trigo, Manteiga, Açúcar, Ovos, Gotas de Chocolate, Extrato de Baunilha, Sal',
+    allergic_ingredients: 'Glúten, Leite, Ovos, Soja',
+    calories: 260,
+    discount: 0,
+    bestseller: true
+  },
+  { 
+    id: 102, 
+    name: 'Stikadinho Cookie', 
+    slug: 'stikadinho-cookie', 
+    image: cookieStikadinhoImg.src,
+    categories: [CATEGORY_COOKIES],
+    details: 'Cookie feito com massa de cacau, macio no centro e com bordas levemente crocantes. Um sabor intenso para quem ama chocolate.',
+    product_description: 'Cookie feito com massa de cacau, textura macia e sabor marcante de chocolate.',
+    funny_description: 'Quando o cacau chama, este cookie responde. Forte, macio e inesquecível.',
+    price: 12.00,
+    ingredients: 'Farinha de Trigo, Cacau em Pó, Manteiga, Açúcar Mascavo, Ovos, Chocolate em Pedaços, Sal',
+    allergic_ingredients: 'Glúten, Leite, Ovos, Soja',
+    calories: 280,
+    discount: 0,
+    bestseller: true
+  },
+  { 
+    id: 103, 
+    name: 'M&Ms Cookie', 
+    slug: 'mms-cookie', 
+    image: cookieMmsImg.src,
+    categories: [CATEGORY_COOKIES],
+    details: 'Massa amanteigada com M&Ms crocantes e coloridos. Um cookie divertido e cheio de personalidade.',
+    product_description: 'Cookie amanteigado com M&Ms crocantes que deixam cada mordida mais divertida.',
+    funny_description: 'Colorido por fora, delicioso por dentro. Um cookie que faz todo mundo sorrir.',
+    price: 12.00,
+    ingredients: 'Farinha de Trigo, Manteiga, Açúcar, Ovos, M&Ms, Extrato de Baunilha, Sal',
+    allergic_ingredients: 'Glúten, Leite, Ovos, Soja',
+    calories: 290,
     discount: 0,
     bestseller: true
   },

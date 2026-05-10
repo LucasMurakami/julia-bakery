@@ -1,16 +1,13 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 
-import cookiesBannerImg from '@/assets/cookies/Cookies-banner.webp';
-import mooncakeBannerImg from '@/assets/mooncakes/Mooncake-banner.webp';
-import mooncakeWhite2Img from '@/assets/mooncakes/Mooncake-product-white-2.webp';
+import cookieChocolateImg from '@/assets/cookies/Chocolate_Cookies.webp';
+import cookieMmsImg from '@/assets/cookies/M&MS_Cookies.webp';
+import cookieStikadinhoImg from '@/assets/cookies/Stikadinho_Cookies.webp';
 
 const galleryImages = [
-	{ src: mooncakeBannerImg.src, alt: 'Mooncake banner' },
-	{ src: cookiesBannerImg.src,  alt: 'Cookies' },
-	{ src: mooncakeWhite2Img.src, alt: 'Mooncake branco' },
-    { src: mooncakeBannerImg.src, alt: 'Mooncake banner' },
-	{ src: cookiesBannerImg.src,  alt: 'Cookies' },
-	{ src: mooncakeWhite2Img.src, alt: 'Mooncake branco' },
+	{ src: cookieChocolateImg.src, alt: 'Cookie chocolate' },
+	{ src: cookieMmsImg.src, alt: 'Cookie M&Ms' },
+	{ src: cookieStikadinhoImg.src, alt: 'Cookie Stikadinho' },
 ];
 
 const ITEM_WIDTH = 320;
@@ -20,7 +17,9 @@ const SPEED = 0.5;
 export default function BakeryGalleryCarousel() {
 	const [lightbox, setLightbox] = useState<(typeof galleryImages)[0] | null>(null);
 	const [isDragging, setIsDragging] = useState(false);
+	const [repeatFactor, setRepeatFactor] = useState(2);
 
+	const containerRef = useRef<HTMLDivElement>(null);
 	const trackRef = useRef<HTMLDivElement>(null);
 	const posRef = useRef(0);
 	const rafRef = useRef<number>(0);
@@ -30,27 +29,57 @@ export default function BakeryGalleryCarousel() {
 	const capturedPosRef = useRef(0);
 	const hasDraggedRef = useRef(false);
 
-	// Duplicate images for seamless loop
-	const allImages = [...galleryImages, ...galleryImages];
-	const halfWidth = (ITEM_WIDTH + GAP) * galleryImages.length;
+	const baseImages = useMemo(() => {
+		const images: typeof galleryImages = [];
+		for (let i = 0; i < repeatFactor; i += 1) {
+			images.push(...galleryImages);
+		}
+		return images;
+	}, [repeatFactor]);
+
+	const updateRepeatFactor = useCallback(() => {
+		const containerWidth = containerRef.current?.offsetWidth ?? 0;
+		const baseGroupWidth = (ITEM_WIDTH + GAP) * galleryImages.length;
+		if (!containerWidth || !baseGroupWidth) return;
+		const minWidth = containerWidth * 2;
+		const repeats = Math.ceil(minWidth / baseGroupWidth);
+		const next = Math.max(2, repeats);
+		setRepeatFactor((prev) => (prev === next ? prev : next));
+	}, []);
+
+	const getHalfWidth = () => (trackRef.current ? trackRef.current.scrollWidth / 2 : 0);
+
+	const normalize = (p: number) => {
+		const half = getHalfWidth();
+		if (!half) return p;
+		if (p <= -half) return p + half;
+		if (p > 0) return p - half;
+		return p;
+	};
 
 	const animate = useCallback(() => {
 		if (!isHoveredRef.current && !isDraggingRef.current) {
-			posRef.current -= SPEED;
-			if (posRef.current <= -halfWidth) {
-				posRef.current += halfWidth;
-			}
+			posRef.current = normalize(posRef.current - SPEED);
 			if (trackRef.current) {
 				trackRef.current.style.transform = `translateX(${posRef.current}px)`;
 			}
 		}
 		rafRef.current = requestAnimationFrame(animate);
-	}, [halfWidth]);
+	}, []);
 
 	useEffect(() => {
 		rafRef.current = requestAnimationFrame(animate);
 		return () => cancelAnimationFrame(rafRef.current);
 	}, [animate]);
+
+	useEffect(() => {
+		updateRepeatFactor();
+		const el = containerRef.current;
+		if (!el) return;
+		const observer = new ResizeObserver(() => updateRepeatFactor());
+		observer.observe(el);
+		return () => observer.disconnect();
+	}, [updateRepeatFactor]);
 
 	useEffect(() => {
 		if (!lightbox) return;
@@ -83,12 +112,9 @@ export default function BakeryGalleryCarousel() {
 		if (!isDraggingRef.current) return;
 		const delta = e.clientX - startXRef.current;
 		if (Math.abs(delta) > 4) hasDraggedRef.current = true;
-		let newPos = capturedPosRef.current + delta;
-		if (newPos > 0) newPos = newPos % halfWidth === 0 ? 0 : -(halfWidth - (newPos % halfWidth));
-		if (newPos <= -halfWidth) newPos = newPos % halfWidth;
-		posRef.current = newPos;
+		posRef.current = normalize(capturedPosRef.current + delta);
 		if (trackRef.current) {
-			trackRef.current.style.transform = `translateX(${newPos}px)`;
+			trackRef.current.style.transform = `translateX(${posRef.current}px)`;
 		}
 	};
 
@@ -108,6 +134,7 @@ export default function BakeryGalleryCarousel() {
 			{/* Gallery strip */}
 			<div
 				className="overflow-hidden"
+				ref={containerRef}
 				onMouseEnter={() => { isHoveredRef.current = true; }}
 				onMouseLeave={() => { isHoveredRef.current = false; }}
 				onPointerDown={handlePointerDown}
@@ -125,32 +152,45 @@ export default function BakeryGalleryCarousel() {
 						willChange: 'transform',
 					}}
 				>
-					{allImages.map((img, i) => (
-						<div
-							key={i}
-							onClick={() => handleImageClick(img)}
-							className="flex-shrink-0 overflow-hidden rounded-2xl bg-neutral-200 dark:bg-neutral-800"
-							style={{
-								width: `${ITEM_WIDTH}px`,
-								height: '320px',
-								position: 'relative',
-							}}
-						>
-							<img
-								src={img.src}
-								alt={img.alt}
-								className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-								width={ITEM_WIDTH}
-								height={320}
-								loading={i < 6 ? 'eager' : 'lazy'}
-								draggable={false}
-							/>
-							{/* Subtle hover overlay */}
+						{[0, 1].map((groupIdx) => (
 							<div
-								className="pointer-events-none absolute inset-0 rounded-2xl bg-black/0 transition-colors duration-300 hover:bg-black/10"
-							/>
-						</div>
-					))}
+								key={groupIdx}
+								aria-hidden={groupIdx === 1 ? 'true' : undefined}
+								style={{
+									display: 'flex',
+									flexShrink: 0,
+									gap: `${GAP}px`,
+									paddingRight: `${GAP}px`,
+								}}
+							>
+								{baseImages.map((img, i) => (
+									<div
+										key={`${groupIdx}-${i}`}
+										onClick={() => handleImageClick(img)}
+										className="flex-shrink-0 overflow-hidden rounded-2xl bg-neutral-200 dark:bg-neutral-800"
+										style={{
+											width: `${ITEM_WIDTH}px`,
+											height: '320px',
+											position: 'relative',
+										}}
+									>
+										<img
+											src={img.src}
+											alt={img.alt}
+											className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+											width={ITEM_WIDTH}
+											height={320}
+											loading={groupIdx === 0 && i < galleryImages.length ? 'eager' : 'lazy'}
+											draggable={false}
+										/>
+										{/* Subtle hover overlay */}
+										<div
+											className="pointer-events-none absolute inset-0 rounded-2xl bg-black/0 transition-colors duration-300 hover:bg-black/10"
+										/>
+									</div>
+								))}
+							</div>
+						))}
 				</div>
 			</div>
 
