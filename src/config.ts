@@ -12,7 +12,7 @@ const getEnabledCategories = () => {
     }
     
     // Default fallback
-    return ['mooncakes', 'cookies'];
+    return ['cookies'];
 };
 
 export const ENABLED_CATEGORIES = getEnabledCategories();
