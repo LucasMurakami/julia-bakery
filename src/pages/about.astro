@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '@/layouts/Layout.astro';
 import Footer from '@/components/Footer.astro';
 import Nav from '@/components/ui/Nav';
+import ufrgsAgronomia from '@/assets/UFRGS/UFRGS-Agronomia.webp';
 ---
 
 <Layout>
@@ -27,8 +29,12 @@ import Nav from '@/components/ui/Nav';
             </p>
           </div>
           <div class="relative aspect-square md:aspect-[4/5] overflow-hidden rounded-2xl bg-[hsl(var(--muted))] flex items-center justify-center">
-            {/* Placeholder for an image - using an emoji or icon for now if no image is available */}
-            <span class="text-9xl">👩‍🍳</span>
+            <Image
+              src={ufrgsAgronomia}
+              alt="UFRGS Agronomia"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
 
