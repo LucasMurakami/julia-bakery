@@ -1,7 +1,8 @@
 ---
 import '@/styles/globals.css';
-import  SpeedInsights  from "@vercel/speed-insights/astro"
-import Analytics from '@vercel/analytics/astro'
+import SpeedInsights from '@vercel/speed-insights/astro';
+import Analytics from '@vercel/analytics/astro';
+import logoMark from '@/assets/logo/Bitten_Cookie-removebg-preview.png';
 ---
 
 <!doctype html>
@@ -10,8 +11,7 @@ import Analytics from '@vercel/analytics/astro'
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta id="color-scheme-meta" name="color-scheme" content="light" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/webp" href={logoMark.src} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -32,10 +32,10 @@ import Analytics from '@vercel/analytics/astro'
 			/>
 		</noscript>
 		<meta name="generator" content={Astro.generator} />
-		<title>Pinckmax Bakery – O Melhor Caseiro</title>
+		<title>Pinckmax Bakery – Confeitaria Artesanal</title>
 		<meta
 			name="description"
-			content="Um affair de amor com a confeitaria. Cookies, bolos e doces caseiros. Tome um café ou peça online. St-Henri, Montreal."
+			content="Confeitaria artesanal da Pinckmax: cookies, bolos e doces caseiros feitos com carinho. Encomendas e novidades toda semana."
 		/>
 		<script is:inline>
 			const getThemePreference = () => {
