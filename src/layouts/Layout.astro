@@ -5,8 +5,19 @@ import Analytics from '@vercel/analytics/astro';
 import logoMark from '@/assets/logo/Bitten_Cookie-removebg-preview.png';
 import cookiesBanner from '@/assets/cookies/Cookies-banner.webp';
 
-const siteUrl = 'https://pinckmax.com.br';
-const ogImageUrl = new URL(cookiesBanner.src, siteUrl).toString();
+const siteUrl = 'https://www.pinckmax.com.br';
+
+const {
+	title = 'Pinckmax Bakery – Confeitaria Artesanal',
+	description =
+		'Confeitaria artesanal da Pinckmax: cookies, bolos e doces caseiros feitos com carinho. Encomendas e novidades toda semana.',
+	path = '/',
+	image = cookiesBanner,
+	noIndex = false,
+} = Astro.props;
+
+const ogUrl = new URL(path, siteUrl).toString();
+const ogImageUrl = new URL(image.src, siteUrl).toString();
 ---
 
 <!doctype html>
@@ -36,29 +47,21 @@ const ogImageUrl = new URL(cookiesBanner.src, siteUrl).toString();
 			/>
 		</noscript>
 		<meta name="generator" content={Astro.generator} />
-		<title>Pinckmax Bakery – Confeitaria Artesanal</title>
-		<meta
-			name="description"
-			content="Confeitaria artesanal da Pinckmax: cookies, bolos e doces caseiros feitos com carinho. Encomendas e novidades toda semana."
-		/>
-		<link rel="canonical" href={siteUrl} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		{noIndex ? <meta name="robots" content="noindex, nofollow" /> : null}
+		<link rel="canonical" href={ogUrl} />
 		<meta property="og:site_name" content="Pinckmax Bakery" />
-		<meta property="og:title" content="Pinckmax Bakery – Confeitaria Artesanal" />
-		<meta
-			property="og:description"
-			content="Confeitaria artesanal da Pinckmax: cookies, bolos e doces caseiros feitos com carinho. Encomendas e novidades toda semana."
-		/>
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="pt_BR" />
-		<meta property="og:url" content={siteUrl} />
+		<meta property="og:url" content={ogUrl} />
 		<meta property="og:image" content={ogImageUrl} />
 		<meta property="og:image:alt" content="Pinckmax Bakery" />
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="Pinckmax Bakery – Confeitaria Artesanal" />
-		<meta
-			name="twitter:description"
-			content="Confeitaria artesanal da Pinckmax: cookies, bolos e doces caseiros feitos com carinho. Encomendas e novidades toda semana."
-		/>
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={ogImageUrl} />
 		<script is:inline>
 			const getThemePreference = () => {

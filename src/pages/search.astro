@@ -5,7 +5,11 @@ import Footer from '@/components/Footer.astro';
 import SearchResults from '@/components/ui/SearchResults';
 ---
 
-<Layout title="Buscar | Pinckmax">
+<Layout
+  title="Buscar | Pinckmax"
+  description="Encontre seus doces favoritos da Pinckmax por nome, sabor ou categoria."
+  path="/search/"
+>
   <div class="min-h-screen bg-[hsl(var(--background))]">
     <Nav client:load forceOpaque={true} />
     
