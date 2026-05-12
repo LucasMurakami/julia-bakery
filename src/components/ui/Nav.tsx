@@ -102,11 +102,11 @@ export default function Nav({ forceOpaque = false }: NavProps) {
              <div>
               <ThemeToggle />
              </div>
-            <a href="#cart" className="hover:opacity-80 transition-opacity" aria-label="Sacola">
+            {/* <a href="#cart" className="hover:opacity-80 transition-opacity" aria-label="Sacola">
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
-            </a>
+            </a> */}
             <button 
                 type="button" 
                 onClick={handleSearchToggle}
