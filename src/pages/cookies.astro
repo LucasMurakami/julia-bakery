@@ -3,10 +3,16 @@ import Layout from '@/layouts/Layout.astro';
 import Nav from '@/components/ui/Nav';
 import Footer from '@/components/Footer.astro';
 import { cookies } from '@/lib/products';
+import cookiesBanner from '@/assets/cookies/Cookies-banner.webp';
 
 ---
 
-<Layout title="Cookies Artesanais | Pinckmax">
+<Layout
+  title="Cookies Artesanais | Pinckmax"
+  description="Cookies artesanais da Pinckmax: sabores exclusivos, crocantes por fora e macios por dentro."
+  path="/cookies/"
+  image={cookiesBanner}
+>
   <div class="min-h-screen bg-[hsl(var(--background))]">
     <Nav client:load forceOpaque={true} />
     

@@ -4,7 +4,11 @@ import Footer from '@/components/Footer.astro';
 import Nav from '@/components/ui/Nav';
 ---
 
-<Layout>
+<Layout
+  title="Fale Conosco | Pinckmax"
+  description="Entre em contato com a Pinckmax pelo Instagram e saiba mais sobre encomendas."
+  path="/contact/"
+>
   <div class="min-h-screen bg-[hsl(var(--background))] flex flex-col justify-between">
     <Nav client:load forceOpaque={true} />
     
