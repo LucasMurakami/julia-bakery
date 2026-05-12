@@ -3,6 +3,10 @@ import '@/styles/globals.css';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import Analytics from '@vercel/analytics/astro';
 import logoMark from '@/assets/logo/Bitten_Cookie-removebg-preview.png';
+import cookiesBanner from '@/assets/cookies/Cookies-banner.webp';
+
+const siteUrl = 'https://pinckmax.com.br';
+const ogImageUrl = new URL(cookiesBanner.src, siteUrl).toString();
 ---
 
 <!doctype html>
@@ -37,6 +41,25 @@ import logoMark from '@/assets/logo/Bitten_Cookie-removebg-preview.png';
 			name="description"
 			content="Confeitaria artesanal da Pinckmax: cookies, bolos e doces caseiros feitos com carinho. Encomendas e novidades toda semana."
 		/>
+		<link rel="canonical" href={siteUrl} />
+		<meta property="og:site_name" content="Pinckmax Bakery" />
+		<meta property="og:title" content="Pinckmax Bakery – Confeitaria Artesanal" />
+		<meta
+			property="og:description"
+			content="Confeitaria artesanal da Pinckmax: cookies, bolos e doces caseiros feitos com carinho. Encomendas e novidades toda semana."
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="pt_BR" />
+		<meta property="og:url" content={siteUrl} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:alt" content="Pinckmax Bakery" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Pinckmax Bakery – Confeitaria Artesanal" />
+		<meta
+			name="twitter:description"
+			content="Confeitaria artesanal da Pinckmax: cookies, bolos e doces caseiros feitos com carinho. Encomendas e novidades toda semana."
+		/>
+		<meta name="twitter:image" content={ogImageUrl} />
 		<script is:inline>
 			const getThemePreference = () => {
 				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
