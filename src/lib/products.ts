@@ -141,7 +141,7 @@ export const cookies: Product[] = [
     details: 'O clássico infalível agora com gotas generosas de chocolate. Massa amanteigada, crocante por fora e macia por dentro, com pedacinhos que derretem a cada mordida.',
     product_description: 'Massa amanteigada com gotas de chocolate, crocante por fora e macia por dentro, com sabor reconfortante e envolvente.',
     funny_description: 'O cookie que todos conhecem e amam, agora com chocolate em dobro. Simples, honesto e absolutamente irresistível.',
-    price: 6.50,
+    price: 6.00,
     ingredients: 'Farinha de Trigo, Manteiga, Açúcar, Ovos, Gotas de Chocolate, Extrato de Baunilha, Sal',
     allergic_ingredients: 'Glúten, Leite, Ovos, Soja',
     calories: 260,
